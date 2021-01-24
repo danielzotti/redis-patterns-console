@@ -14,8 +14,8 @@ export class CommandListComponent {
   categories: Array<string> = [];
   activeCommand: Command;
   activeCategory = '';
+  resetScrollValue: number;
 
-  @ViewChild('scrollBox', {static: true}) scrollBox: ElementRef;
   @Input('commands') set setCommands(data: Array<Command>) {
     this.filteredCommands = data;
     const array = this.filteredCommands.map(item => item.group);
@@ -56,7 +56,11 @@ export class CommandListComponent {
    * @param category category name
    */
   setActiveCategory(category: string) {
-    this.scrollBox.nativeElement.scrollTop = 0;
     this.activeCategory = category;
+    this.resetScroll();
+  }
+
+  resetScroll() {
+    this.resetScrollValue = new Date().getTime();
   }
 }

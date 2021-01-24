@@ -1,0 +1,9 @@
+:root {
+  --scrollable-content__title-color: var(--primary-dark);
+  .theme--dark {
+    --scrollable-content__title-color: var(--primary-light);
+  }
+  .theme--light {
+    --scrollable-content__title-color: var(--primary-dark);
+  }
+}

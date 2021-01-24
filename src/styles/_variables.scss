@@ -1,0 +1,14 @@
+$screen-min-width: 320px !default;
+$screen-xs-min: 500px !default;
+$screen-sm-min: 768px !default;
+$screen-md-min: 992px !default;
+$screen-lg-min: 1200px !default;
+$screen-xl-min: 1400px !default;
+
+$screen-xs-max: $screen-sm-min - 1;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
+$screen-lg-max: $screen-xl-min - 1;
+
+$screen-height-breakpoint-sm-min: 500px;
+$screen-height-breakpoint-xs-max: $screen-height-breakpoint-sm-min - 1;

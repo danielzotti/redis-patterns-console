@@ -5,6 +5,7 @@ import { Command } from '@app/shared/models/command.interface';
 @Component({
   selector: 'tr-command-summary',
   templateUrl: './command-summary.component.html',
+  styleUrls: ['./command-summary.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

@@ -1,0 +1,70 @@
+@import "variables";
+@import "mixins/reset-list";
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--margin-lg) var(--margin-md);
+  background: var(--header-bg);
+  color: var(--header-color);
+  border-bottom: 3px solid var(--header-border-color);
+  height: 100%;
+}
+
+.header__app-info {
+  display: flex;
+  align-items: center;
+}
+
+.header__menu {
+  @include reset-list();
+  align-items: center;
+  display: flex;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    li {
+      padding: var(--margin-default);
+      font-size: var(--font-size-xs);
+      text-align: center;
+
+      @media(min-width: $screen-xs-min) {
+        font-size: var(--font-size-default);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--header-color);
+      }
+    }
+  }
+}
+
+.app-logo {
+  width: 30px;
+  @media(min-width: $screen-xs-min) {
+    width: 65px;
+  }
+}
+
+.app-info {
+
+}
+
+.app-name {
+  font-size: var(--font-size-lg);
+  margin-right: var(--margin-sm);
+  display: none;
+  @media(min-width: $screen-sm-min) {
+    display: inline-block;
+  }
+}
+
+.app-version {
+  font-size: var(--font-size-xs);
+}

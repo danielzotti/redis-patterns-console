@@ -1,0 +1,14 @@
+:root {
+  --header-bg: #222;
+  --header-color: #FFF;
+  --header-border-color: #222;
+  .theme--dark {
+    --header-color: #DDD;
+    --header-border-color: #DDD;
+  }
+  .theme--light {
+    --header-bg: #EFEFEF;
+    --header-color: #000;
+    --header-border-color: #DDD;
+  }
+}

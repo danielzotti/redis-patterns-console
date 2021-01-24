@@ -1,10 +1,13 @@
-<h3 class="h4">Patterns</h3>
-<div class="flex-fill scroll-box-container">
-  <div class="scroll-box">
-    <ul>
-      <li *ngFor="let pattern of patterns$ | async" (click)="select(pattern)" [class.text-primary]="current == pattern">
-        <i class="material-icons">description</i> {{ pattern.title }}
-      </li>
-    </ul>
-  </div>
-</div>
+<ul class="pattern-list">
+  <li *ngFor="let pattern of patterns$ | async"
+      (click)="select(pattern)"
+      [class.active]="current == pattern"
+      class="pattern">
+      <span class="icon">
+        <i class="material-icons">description</i>
+      </span>
+      <span class="title" [title]="pattern.title">
+        {{ pattern.title }}
+      </span>
+  </li>
+</ul>

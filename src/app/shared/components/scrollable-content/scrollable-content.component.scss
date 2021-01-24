@@ -1,0 +1,54 @@
+@import "elements/scrollbox";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &.is-standalone {
+    height: auto;
+    width: auto;
+  }
+
+  &.has-padding {
+    padding: var(--margin-default);
+  }
+}
+
+.title {
+  cursor: help;
+  color: var(--scrollable-content__title-color);
+
+  &.is-text-collapsed {
+    .title__inner {
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+  }
+}
+
+.title__inner {
+  text-transform: uppercase;
+  display: block;
+  max-width: 100%;
+  font-weight: bold;
+  line-height: 1;
+  border-bottom: 1px solid var(--neutro-dark);
+  padding-bottom: var(--margin-default);
+  margin-bottom: var(--margin-default);
+  font-size: var(--font-size-sm);
+}
+
+.content {
+  @extend .scrollbox;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.content-inner {
+  position: relative;
+  //height: 100%;
+}

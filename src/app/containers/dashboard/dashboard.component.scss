@@ -1,0 +1,153 @@
+@import "variables";
+@import "src/styles/elements/scrollbox";
+
+:host {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: auto;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "commands";
+
+  .section__summary, .section__patterns {
+    display: none;
+  }
+
+  @media(min-width: $screen-sm-min) {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "patterns patterns"
+    "commands summary";
+    .section__summary, .section__patterns {
+      display: flex;
+    }
+  }
+  @media(min-width: $screen-md-min) {
+    grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "patterns commands summary";
+    .section__summary, .section__patterns {
+      display: block;
+    }
+  }
+}
+
+.dashboard__loader {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .loader {
+  }
+}
+
+/**********************
+  DASHBOARD SECTIONS
+**********************/
+
+.dashboard__section {
+  max-height: 100%;
+  overflow: hidden;
+  padding: var(--margin-sm);
+}
+
+.section__patterns {
+  @extend .dashboard__section;
+  grid-area: patterns;
+}
+
+.section__commands {
+  @extend .dashboard__section;
+  grid-area: commands;
+  background: var(--dashboard__section-commands-bg);
+  color: var(--dashboard__section-commands-color);
+}
+
+.section__summary {
+  @extend .dashboard__section;
+  grid-area: summary;
+}
+
+/*******************************
+  DASHBOARD SECTION COMPONENTS
+*******************************/
+.section__patterns {
+  display: flex;
+  flex-direction: row;
+
+  .pattern-list {
+    width: 40%;
+    overflow: auto;
+  }
+
+  .pattern-content {
+    width: 60%;
+    overflow: auto;
+  }
+
+  @media(min-width: $screen-md-min) {
+    flex-direction: column;
+    .pattern-list {
+      display: block;
+      height: 40%;
+      width: 100%;
+    }
+    .pattern-content {
+      display: block;
+      height: 60%;
+      width: 100%;
+    }
+
+  }
+}
+
+.section__commands {
+  display: flex;
+  flex-direction: column;
+
+  .commands__list {
+    height: 40%;
+  }
+
+  .command__list-inner {
+
+  }
+
+  .commands__main {
+    height: 60%;
+  }
+
+  .commands__main-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .commands__output {
+    flex: 1;
+    @extend .scrollbox;
+    background-color: var(--primary-default-bg);
+    color: var(--primary-default-text);
+    border: 1px solid var(--dashboard__section-commands-border);
+  }
+
+}
+
+.section__summary {
+  display: flex;
+  flex-direction: column;
+
+  .summary {
+    height: 40%;
+  }
+
+  .documentation {
+    height: 60%;
+  }
+}

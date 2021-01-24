@@ -1,0 +1,13 @@
+<div class="title" (click)="toggleExpand()">
+  <i *ngIf="!isExpanded" class="material-icons">expand_less</i>
+  <i *ngIf="isExpanded" class="material-icons">expand_more</i>
+  <span>
+    Themes
+  </span>
+</div>
+<div class="themes" *ngIf="isExpanded">
+  <i *ngFor="let theme of themes"
+     class="material-icons"
+     [class.is-active]="theme.isActive"
+     (click)="onSelect(theme)">{{ theme.materialIcon }}</i>
+</div>

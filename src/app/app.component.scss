@@ -1,0 +1,64 @@
+@import "variables";
+
+$header-height-mobile: 65px !default;
+$header-height-desktop: 100px !default;
+
+:host {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: block;
+  min-width: $screen-min-width;
+  @media(min-height: $screen-height-breakpoint-sm-min) {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.app__container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: auto;
+  font-family: var(--font-family);
+  font-weight: 300;
+  background-color: var(--primary-default-bg);
+  color: var(--primary-default-text);
+  font-size: var(--font-size-default);
+}
+
+.app__header {
+  min-width: $screen-min-width;
+  height: $header-height-mobile;
+  @media(min-width: $screen-xs-min) {
+    height: $header-height-desktop;
+  }
+}
+
+.app__page {
+  min-width: $screen-min-width;
+  overflow: auto;
+  position: relative;
+  height: auto;
+  width: 100%;
+  @media(max-height: $screen-height-breakpoint-sm-min) {
+    height: 600px;
+  }
+
+  @media(min-height: $screen-height-breakpoint-sm-min) {
+    width: 100vw;
+    position: absolute;
+    height: calc(100vh - #{$header-height-mobile});
+    @media(min-width: $screen-xs-min) {
+      height: calc(100vh - #{$header-height-desktop});
+    }
+  }
+}
+
+tr-theme-selector {
+  position:fixed;
+  bottom:0;
+  right:var(--margin-md);
+}

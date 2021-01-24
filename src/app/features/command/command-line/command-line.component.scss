@@ -1,0 +1,20 @@
+:host {
+
+}
+
+.command-input {
+  width: 100%;
+  line-height: 1.2;
+  outline: none;
+  margin-top: var(--margin-default);
+  padding: var(--margin-sm) var(--margin-default);
+  background-color: var(--primary-default-bg);
+  color: var(--primary-default-text);
+  border: 1px solid var(--dashboard__section-commands-border);
+}
+
+.hint {
+  height: 40px;
+  color: var(--neutro-dark);
+  padding-left: var(--margin-sm);
+}

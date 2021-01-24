@@ -1,0 +1,51 @@
+:root {
+  .theme--light {
+    --dark: #000;
+    --neutro-extra-dark: #343434;
+    --neutro-dark: #636363;
+    --neutro: #B3B3B3;
+    --neutro-light: #EBEBEB;
+    --neutro-extra-light: #F3F3F3;
+    --light: #FFF;
+
+    --primary-default-bg: #FFF;
+    --primary-default-text: #000;
+    --primary: #1976d2;
+    --primary-light: #63a4ff;
+    --primary-extra-light: #d0e6fb;
+    --primary-dark: #004ba0;
+    --primary-text: #000;
+
+    --secondary: #8e24aa;
+    --secondary-light: #c158dc;
+    --secondary-dark: #5c007a;
+    --secondary-text: #000;
+
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+
+    // Sizes
+    --margin-sm: 7px;
+    --margin-default: calc(var(--margin-sm) * 2);
+    --margin-md: calc(var(--margin-sm) * 3);
+    --margin-lg: calc(var(--margin-sm) * 5);
+    --margin-xl: calc(var(--margin-sm) * 8);
+
+    --border-radius-small: 3px;
+    --border-radius-default: calc(var(--border-radius-small) * 2);
+    --border-radius-medium: calc(var(--border-radius-small) * 3);
+    --border-radius-big: calc(var(--border-radius-small) * 5);
+
+    //// Fonts
+    //--font-family: 'Open Sans';
+    //--font-family-title: 'Open Sans';
+    //--font-family-mono: 'Open Sans';
+    //--font-size-xs: 10px;
+    //--font-size-sm: 13px;
+    //--font-size-default: 16px;
+    //--font-size-md: 20px;
+    //--font-size-lg: 24px;
+    //--font-size-xl: 35px;
+  }
+}

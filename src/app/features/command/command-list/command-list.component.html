@@ -1,39 +1,35 @@
-<h3 class="h4">Commands</h3>
-<div class="row h-100">
-  <div class="col-sm-6 d-md-flex flex-column h-md-100">
-    <div class="flex-fill scroll-box-container command-list-container">
-      <div class="scroll-box">
-        <ul>
-          <li [class.text-primary]="activeCategory === category" *ngFor="let category of categories"
-            (click)="setActiveCategory(category)">
-            <ng-container *ngIf="category !== ''; else allCategories">{{ category | uppercase }}</ng-container>
-            <ng-template #allCategories>ALL</ng-template>
-          </li>
-        </ul>
-      </div>
+<div class="category-list">
+  <tr-title-and-scrollable-content [hasPadding]="false">
+    <ul class="list">
+      <li *ngFor="let category of categories"
+          [class.is-active]="activeCategory === category"
+          (click)="setActiveCategory(category)">
+        <ng-container *ngIf="category !== ''; else allCategories">{{ category | uppercase }}</ng-container>
+        <ng-template #allCategories>ALL</ng-template>
+      </li>
+    </ul>
+  </tr-title-and-scrollable-content>
+</div>
+
+<div class="command-list">
+  <tr-title-and-scrollable-content [hasPadding]="false" [triggerResetScroll]="resetScrollValue">
+    <div class="filter">
+      <span class="clear-filter" (click)="search.value = ''"><i class="material-icons">clear</i></span>
+      <input type="text" placeholder="Search command" #search (input)="true">
     </div>
-  </div>
-  <div class="col-sm-6 d-md-flex flex-column h-md-100">
-    <div class="filter-container">
-      <input type="text" class="form-control form-control-sm" placeholder="Search command" #search (input)="true">
-    </div>
-    <div class="flex-fill scroll-box-container command-list-container">
-      <div class="scroll-box" #scrollBox>
-        <ul>
-          <li
-            *ngFor="let command of filteredCommands | searchFilter: 'key': search.value | searchFilter: 'group': activeCategory"
-            [class.text-primary]="command.key.toLowerCase().trim() === this.activeCommand?.key.toLowerCase().trim()"
-            class="d-flex">
-              <span (click)="select(command)">{{ command.key }}</span>
-              <span
-                class="badge d-none"
-                title="Write it on command input"
-                (click)="writeToCommandLine(command)">
-                  <i class="material-icons">input</i>
-              </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <ul class="list">
+      <li *ngFor="let command of filteredCommands | searchFilter: 'key': search.value | searchFilter: 'group': activeCategory"
+          [class.is-active]="command.key.toLowerCase().trim() === this.activeCommand?.key.toLowerCase().trim()"
+          class="command">
+
+        <span (click)="select(command)">{{ command.key }}</span>
+
+        <span title="Write it on command input"
+              class="write-to-command-line"
+              (click)="writeToCommandLine(command)">
+              <i class="material-icons">input</i>
+            </span>
+      </li>
+    </ul>
+  </tr-title-and-scrollable-content>
 </div>

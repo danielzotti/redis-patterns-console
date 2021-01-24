@@ -1,0 +1,15 @@
+<div #title
+     *ngIf="contentTitle"
+     class="title"
+     [title]="contentTitle"
+     [ngClass]="{'is-text-collapsed': isTextCollapsed }"
+     (click)="toggleExpand()">
+  <div class="title__inner">
+    {{  contentTitle }}
+  </div>
+</div>
+<div #content class="content">
+  <div class="content-inner">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -5,17 +5,20 @@ import { CommonModule } from '@angular/common';
 import { ConfigService } from './services/config.service';
 import { CacheInterceptor } from './interceptors/cache-interceptor';
 import { HeaderComponent } from '@app/core/components/header/header.component';
+import { ThemeSelectorComponent } from '../shared/components/theme-selector/theme-selector.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    ThemeSelectorComponent
   ],
   imports: [
     HttpClientModule,
     CommonModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    ThemeSelectorComponent
   ],
   providers: [
     {

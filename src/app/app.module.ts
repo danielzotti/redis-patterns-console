@@ -8,10 +8,12 @@ import { CommandModule } from './features/command/command.module';
 import { PatternModule } from './features/pattern/pattern.module';
 
 import { AppComponent } from '@app/app.component';
+import { DashboardComponent } from './containers/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+:root {
+  --dashboard__section-commands-bg: var(--neutro-light);
+  --dashboard__section-commands-color: var(--primary-default-text);
+  --dashboard__section-commands-border: transparent;
+  .theme--dark {
+    --dashboard__section-commands-bg: var(--primary-default-bg);
+    --dashboard__section-commands-color: var(--primary-default-text);
+    --dashboard__section-commands-border: var(--neutro-dark);
+  }
+  .theme--light {
+    --dashboard__section-commands-bg: var(--neutro-light);
+    --dashboard__section-commands-color: var(--primary-default-text);
+    --dashboard__section-commands-border: transparent;
+  }
+}

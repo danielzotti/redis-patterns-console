@@ -1,20 +1,37 @@
-ul {
-  padding-left: 0;
+@import "mixins/reset-list";
 
-  li {
-    list-style: none;
+:host {
+  display: block;
+
+}
+
+@include reset-list();
+
+.pattern-list {
+  padding: var(--margin-sm);
+  margin-top: var(--margin-default);
+
+  .pattern {
     cursor: pointer;
-    margin: .5rem;
-
-    i {
-      font-size: 1.2rem;
-      vertical-align: text-bottom;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: start;
+    padding-bottom: var(--margin-default);
+    &.active {
+      color: var(--primary)
     }
   }
 }
 
-h3 {
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding-bottom: 1.1rem;
+.icon {
+  padding-right: var(--margin-sm);
+  .material-icons {
+    font-size: var(--font-size-md);
   }
+}
+
+.title {
+  font-size: var(--font-size-default);
 }

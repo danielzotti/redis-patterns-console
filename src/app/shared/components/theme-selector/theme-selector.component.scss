@@ -1,0 +1,35 @@
+:host {
+  background-color:var(--primary-default-text);
+  color:var(--primary-default-bg);
+  border-top-left-radius:var(--border-radius-medium);
+  border-top-right-radius:var(--border-radius-medium);
+  padding:var(--margin-sm);
+}
+
+.title {
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: var(--font-size-xs);
+  text-align: center;
+    cursor: pointer;
+  i, span {
+    vertical-align: middle;
+  }
+}
+
+.themes {
+  margin-top: var(--margin-sm);
+  text-align: center;
+
+  i {
+    cursor: pointer;
+    font-size: var(--font-size-default);
+    padding-right: var(--margin-sm);
+    padding-left: var(--margin-sm);
+    &.is-active {
+      color:var(--primary);
+    }
+  }
+}
+
+

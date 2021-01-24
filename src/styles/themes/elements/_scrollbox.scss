@@ -1,0 +1,9 @@
+:root {
+  --scrollbox-color: var(--neutro);
+  .theme--dark {
+    --scrollbox-color: var(--neutro-light);
+  }
+  .theme--light {
+    --scrollbox-color: var(--neutro-dark);
+  }
+}

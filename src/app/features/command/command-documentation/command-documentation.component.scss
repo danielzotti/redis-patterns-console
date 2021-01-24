@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  code {
+    color: var(--primary);
+  }
+
+  blockquote {
+    padding: 0;
+    padding-left: var(--margin-default);
+    border: 1px solid var(--primary);
+  }
+
+  p {
+    background-color: red;
+  }
+
+}
+

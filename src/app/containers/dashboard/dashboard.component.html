@@ -1,0 +1,86 @@
+<ng-container *ngIf="(commandService.commands$ | async) as commands; else loading">
+  <ng-container *ngIf="{activeCommand: commandService.activeCommand$ | async} as data">
+
+    <!-- PATTERNS SECTION -->
+    <div class="section__patterns">
+      <div class="pattern-list">
+        <tr-title-and-scrollable-content contentTitle="Patterns">
+          <tr-pattern-list
+                  [patterns$]="patternService.patterns$"
+                  (selected)="selectPattern($event)">
+          </tr-pattern-list>
+        </tr-title-and-scrollable-content>
+      </div>
+      <div class="pattern-content">
+        <tr-title-and-scrollable-content [contentTitle]="activePattern?.title"
+                                         [triggerResetScroll]="resetChapterScrollValue">
+          <tr-pattern-content
+                  [activePattern]="activePattern"
+                  [patternContent]="patternService.patternContent$ | async"
+                  (help)="selectActiveCommand($event)"
+                  (run)="runCommand($event)"
+                  (chapterChanged)="onChapterChange()">
+          </tr-pattern-content>
+        </tr-title-and-scrollable-content>
+      </div>
+    </div>
+
+    <!-- COMMANDS SECTION -->
+    <div class="section__commands">
+      <div class="commands__list">
+        <tr-title-and-scrollable-content contentTitle="Commands" (contentHeight)="setCommandListHeight($event)">
+          <tr-command-list
+                  [ngStyle]="{'height.px': commandListHeight}"
+                  [activeCommand]="data.activeCommand"
+                  [commands]="commands"
+                  (selected)="selectActiveCommand($event)"
+                  (writeCommand)="writeCommand($event)">
+          </tr-command-list>
+        </tr-title-and-scrollable-content>
+      </div>
+      <div class="commands__main">
+        <tr-title-and-scrollable-content contentTitle="Redis responses"
+                                         (contentHeight)="setCommandOutputHeight($event)">
+          <div class="commands__main-inner" [ngStyle]="{'height.px': commandOutputHeight}">
+            <div class="commands__output" #commandOutput>
+              <tr-command-output
+                      [commandsOutput]="responses$ | async"
+                      (clearOutput)="clearOutput()">
+              </tr-command-output>
+            </div>
+            <tr-command-line
+                    [activeCommand]="data.activeCommand"
+                    [allowedCommands]="commands"
+                    [writeCommand]="newCommandForInput"
+                    [reset]="resetCommand$ | async"
+                    (detectCommand)="selectActiveCommand($event)"
+                    (execute)="runCommand($event)">
+            </tr-command-line>
+          </div>
+        </tr-title-and-scrollable-content>
+      </div>
+    </div>
+
+    <!-- DOCUMENTATION SECTION -->
+    <div class="section__summary">
+      <div class="summary">
+        <tr-title-and-scrollable-content contentTitle="Summary">
+          <tr-command-summary
+                  [command]="data.activeCommand"></tr-command-summary>
+        </tr-title-and-scrollable-content>
+      </div>
+      <div class="documentation">
+        <tr-title-and-scrollable-content contentTitle="Documentation">
+          <tr-command-documentation
+                  [documentation]="commandService.activeDocumentation$ | async"></tr-command-documentation>
+        </tr-title-and-scrollable-content>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div class="dashboard__loader">
+    <div class="loader"></div>
+  </div>
+</ng-template>

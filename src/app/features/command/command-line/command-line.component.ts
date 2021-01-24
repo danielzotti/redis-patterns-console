@@ -8,18 +8,7 @@ import { Command } from '@app/shared/models/command.interface';
 @Component({
   selector: 'tr-command-line',
   templateUrl: './command-line.component.html',
-  styles: [
-    `
-      .input-group-text {
-        background: white;
-        font-size: .9em;
-      }
-
-      .form-control {
-        font-size: .9em;
-      }
-    `
-  ],
+  styleUrls: ['./command-line.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommandLineComponent implements OnInit {
